@@ -9,7 +9,6 @@ license: https://www.apache.org/licenses/LICENSE-2.0
 version: 0.1.0  # sync with primary git repo release tag
 
 ## ------------
-##
 ## PREFIXES
 ## ------------
 # CURIE namespaces (prefixes/base URI's) mappings of prefixes used in the body of
