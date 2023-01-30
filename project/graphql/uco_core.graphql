@@ -1,0 +1,252 @@
+type Annotation
+  {
+    objectMarking: [IriType]
+    objectCreatedTime: TimeType
+    modifiedTime: [TimeType]
+    name: StringType
+    specVersion: StringType
+    description: String
+    createdBy: IriType
+    externalReference: [IriType]
+    hasFacet: [IriType]
+    tag: [StringType]
+    statement: [StringType]
+    object: [IriType]!
+  }
+
+type Assertion
+  {
+    objectMarking: [IriType]
+    objectCreatedTime: TimeType
+    modifiedTime: [TimeType]
+    name: StringType
+    specVersion: StringType
+    description: String
+    createdBy: IriType
+    externalReference: [IriType]
+    hasFacet: [IriType]
+    tag: [StringType]
+    statement: [StringType]
+  }
+
+type AttributedName
+  {
+    objectMarking: [IriType]
+    objectCreatedTime: TimeType
+    modifiedTime: [TimeType]
+    name: StringType
+    specVersion: StringType
+    description: String
+    createdBy: IriType
+    externalReference: [IriType]
+    hasFacet: [IriType]
+    tag: [StringType]
+    namingAuthority: StringType
+  }
+
+type Bundle
+  {
+    objectMarking: [IriType]
+    objectCreatedTime: TimeType
+    modifiedTime: [TimeType]
+    name: StringType
+    specVersion: StringType
+    description: String
+    createdBy: IriType
+    externalReference: [IriType]
+    hasFacet: [IriType]
+    tag: [StringType]
+    object: [UcoObject]!
+  }
+
+type Compilation
+  {
+    objectMarking: [IriType]
+    objectCreatedTime: TimeType
+    modifiedTime: [TimeType]
+    name: StringType
+    specVersion: StringType
+    description: String
+    createdBy: IriType
+    externalReference: [IriType]
+    hasFacet: [IriType]
+    tag: [StringType]
+  }
+
+type ConfidenceFacet
+  {
+    confidence: NonNegativeIntegerType!
+  }
+
+type ContextualCompilation
+  {
+    objectMarking: [IriType]
+    objectCreatedTime: TimeType
+    modifiedTime: [TimeType]
+    name: StringType
+    specVersion: StringType
+    description: String
+    createdBy: IriType
+    externalReference: [IriType]
+    hasFacet: [IriType]
+    tag: [StringType]
+    object: [UcoObject]!
+  }
+
+type ControlledVocabulary
+  {
+    objectMarking: [IriType]
+    objectCreatedTime: TimeType
+    modifiedTime: [TimeType]
+    name: StringType
+    specVersion: StringType
+    description: String
+    createdBy: IriType
+    externalReference: [IriType]
+    hasFacet: [IriType]
+    tag: [StringType]
+    constrainingVocabularyReference: IriType
+    constrainingVocabularyName: String
+    value: StringType!
+  }
+
+type EnclosingCompilation
+  {
+    objectMarking: [IriType]
+    objectCreatedTime: TimeType
+    modifiedTime: [TimeType]
+    name: StringType
+    specVersion: StringType
+    description: String
+    createdBy: IriType
+    externalReference: [IriType]
+    hasFacet: [IriType]
+    tag: [StringType]
+    object: [UcoObject]!
+  }
+
+type ExternalReference
+  {
+    referenceURL: IriType
+    definingContext: String
+    externalIdentifier: String
+  }
+
+type Facet
+  {
+  }
+
+type Grouping
+  {
+    objectMarking: [IriType]
+    objectCreatedTime: TimeType
+    modifiedTime: [TimeType]
+    name: StringType
+    specVersion: StringType
+    description: String
+    createdBy: IriType
+    externalReference: [IriType]
+    hasFacet: [IriType]
+    tag: [StringType]
+    object: [UcoObject]!
+    context: [String]
+  }
+
+type IdentityAbstraction
+  {
+    objectMarking: [IriType]
+    objectCreatedTime: TimeType
+    modifiedTime: [TimeType]
+    name: StringType
+    specVersion: StringType
+    description: String
+    createdBy: IriType
+    externalReference: [IriType]
+    hasFacet: [IriType]
+    tag: [StringType]
+  }
+
+type Item
+  {
+    objectMarking: [IriType]
+    objectCreatedTime: TimeType
+    modifiedTime: [TimeType]
+    name: StringType
+    specVersion: StringType
+    description: String
+    createdBy: IriType
+    externalReference: [IriType]
+    hasFacet: [IriType]
+    tag: [StringType]
+  }
+
+type MarkingDefinitionAbstraction
+  {
+    objectMarking: [IriType]
+    objectCreatedTime: TimeType
+    modifiedTime: [TimeType]
+    name: StringType
+    specVersion: StringType
+    description: String
+    createdBy: IriType
+    externalReference: [IriType]
+    hasFacet: [IriType]
+    tag: [StringType]
+  }
+
+type ModusOperandi
+  {
+    objectMarking: [IriType]
+    objectCreatedTime: TimeType
+    modifiedTime: [TimeType]
+    name: StringType
+    specVersion: StringType
+    description: String
+    createdBy: IriType
+    externalReference: [IriType]
+    hasFacet: [IriType]
+    tag: [StringType]
+  }
+
+type Relationship
+  {
+    objectMarking: [IriType]
+    objectCreatedTime: TimeType
+    modifiedTime: [TimeType]
+    name: StringType
+    specVersion: StringType
+    description: String
+    createdBy: IriType
+    externalReference: [IriType]
+    hasFacet: [IriType]
+    tag: [StringType]
+    endTime: TimeType
+    startTime: TimeType
+    kindOfRelationship: String
+    target: IriType!
+    source: [IriType]!
+    isDirectional: BooleanType!
+  }
+
+type UcoInherentCharacterizationThing
+  {
+  }
+
+type UcoObject
+  {
+    objectMarking: [IriType]
+    objectCreatedTime: TimeType
+    modifiedTime: [TimeType]
+    name: StringType
+    specVersion: StringType
+    description: String
+    createdBy: IriType
+    externalReference: [IriType]
+    hasFacet: [IriType]
+    tag: [StringType]
+  }
+
+interface UcoThing
+  {
+  }
+

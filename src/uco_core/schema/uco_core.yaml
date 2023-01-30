@@ -1,0 +1,576 @@
+---
+id: https://w3id.org/lmodel/uco/core
+name: uco-core
+title: UCO Core
+description: >-
+  This ontology defines classes and properties that are shared across the various UCO ontologies.  At a high-level, the UCO core ontology provides base classes, relationship-oriented classes, content-aggregation classes, and shared classes.
+license: https://www.apache.org/licenses/LICENSE-2.0
+
+version: 0.1.0  # sync with primary git repo release tag
+
+## ------------
+##
+## PREFIXES
+## ------------
+# CURIE namespaces (prefixes/base URI's) mappings of prefixes used in the body of
+# the uco-core Model specification are resolved using a specific precedence order,
+# for use in the generation of the uco-core Model context.jsonld mappings to
+# namespaces. Any prefixes encountered in the uco-core Model but not resolved by
+# the following precedence sources, are anonymously declared by linkml as
+# http://example.org/UNKNOWN/ rooted base URI's which should ideally be repaired
+# in one of the precedence lists.
+#
+# 1. The following 'prefixes:' delimited list has first precedence in resolution.
+
+prefixes:
+  dcid: 'https://datacommons.org/browser/'
+  lm-core: 'https://w3id.org/lmodel/core/vocab/'
+  # csrc: 'https://csrc.nist.gov/glossary/term/'    # Computer Security Resource Center
+  linkml: 'https://w3id.org/linkml/'
+  SIO: 'http://semanticscience.org/resource/SIO_'   # Semanticscience Integrated Ontology
+  sumo: 'https://w3id.org/sumo/kb/'
+  WIKIDATA: 'https://www.wikidata.org/wiki/'
+
+  uco_core: 'https://w3id.org/lmodel/uco/core/vocab/'
+
+default_prefix: uco_core
+default_range: string
+
+## ------------
+## ENUMS
+## ------------
+enums: {}
+
+## ------------
+## SUBSETS
+## ------------
+subsets: {}
+
+## ------------
+## TYPES
+## ------------
+imports:
+  - linkml:types
+
+# The following prefix maps are retrieved from the specified
+# contexts defined at https://prefixcommons.org/. The ordered
+
+default_curi_maps:
+  - obo_context
+  - idot_context
+  - monarch_context
+  - semweb_context
+
+# The following 'standard' prefixes are also used.
+emit_prefixes:
+  - rdf
+  - rdfs
+  - xsd
+  - skos
+  - OIO
+  - SO
+
+types:
+
+  string type:
+    typeof: string
+    uri: xsd:string
+    base: str
+
+  literal type:
+    typeof: string
+    uri: rdf:literal
+    description: >-
+      Literals are used for values such as strings, numbers, and dates.
+    notes:
+      - not sure if needed or how to use if needed
+
+  non negative integer type:
+    typeof: integer
+    uri: xsd:nonNegativeInteger
+    description: >-
+      real number strictly greater than zero
+    exact_mappings:
+      - WIKIDATA:Q3176558  # positive real number
+
+  statement type:
+    typeof: string type
+    description: >-
+      meaningful declarative sentence that is either true or false, or that which a true or false declarative sentence asserts
+
+  iri type:
+    typeof: uriorcurie
+    description: >-
+    uri: xsd:anyURI
+
+  boolean type:
+    typeof: boolean
+    uri: xsd:boolean
+
+  time type:
+    typeof: time
+    uri: xsd:dateTime
+    related_mappings:
+      - sumo:TimePoint
+
+## ------------
+## CLASSES
+## ------------
+classes:
+
+  annotation:
+    description: >-
+      An annotation is an assertion made in relation to one or more objects.
+    name: annotation   # rdfs:label
+    is_a: assertion
+    slot_usage:
+      object:
+        range: iri type
+        required: true
+        multivalued: true
+    exact_mappings:
+      - NCIT:C44272  # annotation
+      - SIO:001166  # annotation
+      - WIKIDATA:Q857525  # annotation
+
+  assertion:
+    description: >-
+      An assertion is a statement declared to be true.
+    name: assertion
+    is_a: uco object
+    slot_usage:
+      statement:
+        multivalued: true
+    exact_mappings:
+      - SEPIO:0000001  # assertion
+      - WIKIDATA:Q814441  # assertion
+    close_mappings:
+      - WIKIDATA:Q843812   # logical assertion
+
+  attributed name:
+    description: >-
+      An attributed name is a name of an entity issued by some attributed naming authority.
+    name: attributed name
+    is_a: uco object
+    slots:
+      - namingAuthority
+    related_mappings:
+      - WIKIDATA:Q758251  # Authorization certificate
+      - WIKIDATA:Q32635   # domain name
+      - WIKIDATA:Q5508349  # fully qualified name
+
+  bundle:
+    description: >-
+      A bundle is a container for a grouping of UCO content with no presumption of shared context.
+    name: bundle
+    is_a: enclosing compilation
+    close_mappings:
+      - WIKIDATA:Q1643805  # container
+      - WIKIDATA:Q17008256  # collection
+    narrow_mappings:
+      - WIKIDATA:Q1995545  # package
+      - NCIT:C54192  # package
+
+  compilation:
+    description: >-
+      A compilation is a grouping of things.
+    name: compilation
+    is_a: uco object
+    narrow_mappings:
+      - WIKIDATA:Q1614239  # book or document compilation
+      - WIKIDATA:Q1020767  # product compilation
+
+  confidence facet:
+    description: >-
+      A confidence is a grouping of characteristics unique to an asserted level of certainty in the accuracy of some information.
+    name: confidence facet
+    is_a: facet
+    slot_usage:
+      confidence:
+        required: true
+    related_mappings:
+      - lm-core:ConfidenceLevel
+      # csrc:confidence_interval
+
+  contextual compilation:
+    description: >-
+      A contextual compilation is a grouping of things sharing some context (e.g., a set of network connections observed on a given day, all accounts associated with a given person).
+    name: contextual compilation
+    is_a: compilation
+    slot_usage:
+      object:
+        multivalued: true
+        required: true
+    related_mappings:
+      - WIKIDATA:Q5165203  # contextualization
+      - WIKIDATA:Q498552  # Contextual Query Language
+
+  controlled vocabulary:
+    description: >-
+      A controlled vocabulary is an explicitly constrained set of string values.
+    name: controlled vocabulary
+    is_a: uco object
+    slots:
+      - constrainingVocabularyReference
+      - constrainingVocabularyName
+    slot_usage:
+      value:
+        required: true
+    exact_mappings:
+      - NCIT:C48697
+      - WIKIDATA:Q1469824
+
+  enclosing compilation:
+    description: >-
+      An enclosing compilation is a container for a grouping of things.
+    name: enclosing compilation
+    is_a: compilation
+    slot_usage:
+      object:
+        required: true
+        multivalued: true
+    narrow_mappings:
+      - WIKIDATA:Q1643805  # container
+      - WIKIDATA:Q17008256  # collection
+
+  external reference:
+    description: >-
+      Characteristics of a reference to a resource outside of the UCO.
+    name: external reference
+    is_a: uco inherent characterization thing
+    slots:
+      - referenceURL
+      - definingContext
+      - externalIdentifier
+
+  facet:
+    description: >-
+      A facet is a grouping of characteristics singularly unique to a particular inherent aspect of a UCO domain object.
+    name: facet
+    is_a: uco inherent characterization thing
+    narrow_mappings:
+      - WIKIDATA:Q5428522  # facet, psychology
+
+  grouping:
+    description: >-
+      A grouping is a compilation of referenced UCO content with a shared context.
+    name: grouping
+    is_a: contextual compilation
+    # mixins:
+    # - lm-core:ClassGroupingMixin
+    slot_usage:
+      context:
+        multivalued: true
+    exact_mappings:
+      - NCIT:C25523
+      - WIKIDATA:Q71468208
+
+  identity abstraction:
+    description: >-
+      An identity abstraction is a grouping of identifying characteristics unique to an individual or organization. This class is an ontological structural abstraction for this concept. Implementations of this concept should utilize the identity:Identity class.
+    name: identity abstraction
+    is_a: uco object
+    related_mappings:
+      - NCIT:C68806  # identity
+
+  item:
+    description: >-
+      An item is a distinct article or unit.
+    name: item
+    is_a: uco object
+    exact_mappings:
+      - WIKIDATA:Q11723795
+    narrow_mappings:
+      - NCIT:C142592  # item definition
+      - WIKIDATA:Q3409269  # statistical unit
+
+  marking definition abstraction:
+    description: >-
+      A marking definition abstraction is a grouping of characteristics unique to the expression of a specific data marking conveying restrictions, permissions, and other guidance for how marked data can be used and shared. This class is an ontological structural abstraction for this concept. Implementations of this concept should utilize the marking:MarkingDefinition class.
+    name: marking definition abstraction
+    is_a: uco object
+
+  modus operandi:
+    description: >-
+      A modus operandi is a particular method of operation (how a particular entity behaves or the resources they use).
+    name: modus operandi
+    is_a: uco object
+    exact_mappings:
+      - WIKIDATA:Q301011
+
+  relationship:
+    description: >-
+      A relationship is a grouping of characteristics unique to an assertion that one or more objects are related to another object in some way.
+    name: relationship
+    is_a: uco object
+    slots:
+      - endTime
+      - startTime
+      - kindOfRelationship
+    slot_usage:
+      target:
+        range: iri type
+        required: true
+      source:
+        range: iri type
+        required: true
+        multivalued: true
+      isDirectional:
+        required: true
+    exact_mappings:
+      - NCIT:C25648
+      - WIKIDATA:Q930933
+
+  uco inherent characterization thing:
+    description: >-
+      A UCO inherent characterization thing is a grouping of characteristics unique to a particular inherent aspect of a UCO domain object.
+    name: uco inherent characterization thing
+    is_a: uco thing
+    disjoint_with:
+      - uco object
+
+  uco object:
+    description: >-
+        A UCO object is a representation of a fundamental concept either directly inherent to the cyber domain or indirectly related to the cyber domain and necessary for contextually characterizing cyber domain concepts and relationships. Within the Unified Cyber Ontology (UCO) structure this is the base class acting as a consistent, unifying and interoperable foundation for all explicit and inter-relatable content objects.
+    name: uco object
+    is_a: uco thing
+    disjoint_with:
+      - uco inherent characterization thing
+    slots:
+      - objectMarking
+      - objectCreatedTime
+      - modifiedTime
+      - name
+      - specVersion
+      - description
+    slot_usage:
+      createdBy:
+        range: iri type
+      externalReference:
+        range: iri type
+        multivalued: true
+      hasFacet:
+        range: iri type
+        multivalued: true
+      modifiedTime:
+        multivalued: true
+      objectMarking:
+        range: iri type
+        multivalued: true
+      tag:
+        multivalued: true
+    related_mappings:
+      - WIKIDATA:Q488383  # object
+      - SIO:000776  # object
+
+  uco thing:
+    description: >-
+      UcoThing is the top-level class within UCO.
+    name: uco thing
+    abstract: true
+    notes:
+      - UcoThings are required to not be blank nodes.
+    exact_mappings:
+      - owl:Thing
+    related_mappings:
+      - BFO:0000001    # entity
+      - WIKIDATA:Q35120    # entity
+      - dcid:Thing
+
+## ------------
+## SLOTS
+## ------------
+slots:
+
+  confidence:
+    name: confidence
+    description: >-
+      An asserted level of certainty in the accuracy of some information.
+    range: non negative integer type
+    minimum_value: 0
+    maximum_value: 100
+    close_mappings:
+      - WIKIDATA:Q4116378
+    related_mappings:
+      - WIKIDATA:Q1048607  # conviction
+
+  constrainingVocabularyName:
+    name: constrainingVocabularyName
+    description: >-
+      The name of an explicitly constrained set of string values.
+
+  constrainingVocabularyReference:
+    name: constrainingVocabularyReference
+    description: >-
+      A reference to a specification for an explicitly constrained set of string values. The specification may be unstructured (e.g., web page listing string values) or structured (e.g. RDF/OWL enumeration).
+    range: iri type
+
+  context:
+    name: context
+    description: >-
+      A description of particular contextual affinity.
+    exact_mappings:
+      - NCIT:C63325
+      - WIKIDATA:Q813912
+    narrow_mappings:
+      - WIKIDATA:Q196626
+    related_mappings:
+      - WIKIDATA:Q2141565  # situation
+
+  createdBy:
+    name: createdBy
+    description: >-
+      The identity that created a characterization of a concept.
+    domain: identity abstraction
+    exact_mappings:
+      - NCIT:C42628
+    narrow_mappings:
+      - lm-core:author
+
+  definingContext:
+    name: definingContext
+    description: >-
+      A description of the context relevant to the definition of a particular external reference identifier.
+
+  description:
+    name: description
+    description: >-
+      A description of a particular concept characterization.
+    exact_mappings:
+      - lm-core:description
+
+  endTime:
+    name: endTime
+    description: >-
+      The ending time of a time range.
+    range: time type
+    exact_mappings:
+      - NCIT:C82573
+      - SIO:000670
+      - WIKIDATA:Q24575125
+
+  externalIdentifier:
+    name: externalIdentifier
+    description: >-
+      An identifier for some information defined external to the UCO context.
+
+  externalReference:
+    name: externalReference
+    description: >-
+      Specifies a reference to a resource outside of the UCO.
+    domain: external reference
+
+  hasFacet:
+    name: hasFacet
+    description: >-
+      Further sets of properties characterizing a concept based on the particular context of the class and of the particular instance of the concept being characterized.
+    domain: facet
+
+  isDirectional:
+    name: isDirectional
+    description: >-
+      A specification whether or not a relationship assertion is limited to the context FROM a source object(s) TO a target object.
+    range: boolean type
+
+  kindOfRelationship:
+    name: kindOfRelationship
+    description: >-
+      A characterization of the nature of a relationship between objects.
+
+  modifiedTime:
+    name: modifiedTime
+    description: >-
+      Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds).
+    range: time type
+
+  name:
+    name: name
+    description: >-
+      The name of a particular concept characterization.
+    range: string type
+    exact_mappings:
+      - lm-core:name
+
+  namingAuthority:
+    name: namingAuthority
+    description: >-
+      Specifies the naming authority that issued the name of the entity.
+    range: string type
+
+  object:
+    name: object
+    description: >-
+      Specifies one or more UcoObjects.
+    range: uco object
+    exact_mappings:
+      - lm-core:entity
+
+  objectCreatedTime:
+    name: objectCreatedTime
+    description: >-
+      The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept.
+    range: time type
+    close_mappings:
+      - lm-core:creation_date
+
+  objectMarking:
+    name: objectMarking
+    description: >-
+      Marking definitions to be applied to a particular concept characterization in its entirety.
+    range: marking definition abstraction
+
+  referenceURL:
+    name: referenceURL
+    description: >-
+      A URL for some information defined external to the UCO context.
+    range: iri type
+
+  source:
+    name: source
+    description: >-
+      The originating node of a specified relationship.
+    range: uco object
+    exact_mappings:
+      - lm-core:subject
+
+  specVersion:
+    name: specVersion
+    description: >-
+      The version of UCO ontology or subontology specification used to characterize a concept.
+    range: string type
+    close_mappings:
+      - lm-core:version
+
+  startTime:
+    name: startTime
+    description: >-
+      The initial time of a time range.
+    range: time type
+
+  statement:
+    name: statement
+    description: >-
+      A textual statement of an assertion.
+    range: string type
+
+  tag:
+    name: tag
+    description: >-
+      A generic tag/label.
+    range: string type
+
+  target:
+    name: target
+    description: >-
+      The terminating node of a specified relationship.
+    range: uco object
+    exact_mappings:
+      - lm-core:object
+
+  value:
+    name: value
+    description: >-
+      A string value.
+    range: string type
+
+...

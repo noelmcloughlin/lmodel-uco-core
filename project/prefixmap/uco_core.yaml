@@ -1,0 +1,19 @@
+{
+   "BFO": "http://purl.obolibrary.org/obo/BFO_",
+   "NCIT": "http://purl.obolibrary.org/obo/NCIT_",
+   "OIO": "http://www.geneontology.org/formats/oboInOwl#",
+   "SEPIO": "http://purl.obolibrary.org/obo/SEPIO_",
+   "SIO": "http://semanticscience.org/resource/SIO_",
+   "SO": "http://purl.obolibrary.org/obo/SO_",
+   "WIKIDATA": "https://www.wikidata.org/wiki/",
+   "dcid": "https://datacommons.org/browser/",
+   "linkml": "https://w3id.org/linkml/",
+   "lm-core": "https://w3id.org/lmodel/core/vocab/",
+   "owl": "http://www.w3.org/2002/07/owl#",
+   "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+   "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+   "skos": "http://www.w3.org/2004/02/skos/core#",
+   "sumo": "https://w3id.org/sumo/kb/",
+   "uco_core": "https://w3id.org/lmodel/uco/core/vocab/",
+   "xsd": "http://www.w3.org/2001/XMLSchema#"
+}
