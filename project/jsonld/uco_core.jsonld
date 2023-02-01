@@ -14,7 +14,7 @@
       "prefix_reference": "https://datacommons.org/browser/"
     },
     {
-      "prefix_prefix": "lm-core",
+      "prefix_prefix": "lm_core",
       "prefix_reference": "https://w3id.org/lmodel/core/vocab/"
     },
     {
@@ -1168,7 +1168,7 @@
       "description": "A confidence is a grouping of characteristics unique to an asserted level of certainty in the accuracy of some information.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "related_mappings": [
-        "lm-core:ConfidenceLevel"
+        "lm_core:ConfidenceLevel"
       ],
       "is_a": "Facet",
       "slots": [
@@ -1516,9 +1516,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "uco_core.yaml",
-  "source_file_date": "2023-01-30T23:20:17",
-  "source_file_size": 16646,
-  "generation_date": "2023-01-30T23:20:49",
+  "source_file_date": "2023-02-01T00:01:26",
+  "source_file_size": 16515,
+  "generation_date": "2023-02-01T00:02:43",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/uco_core.context.jsonld",

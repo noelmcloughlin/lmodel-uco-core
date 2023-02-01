@@ -23,10 +23,9 @@ version: 0.1.0  # sync with primary git repo release tag
 
 prefixes:
   dcid: 'https://datacommons.org/browser/'
-  lm-core: 'https://w3id.org/lmodel/core/vocab/'
-  # csrc: 'https://csrc.nist.gov/glossary/term/'    # Computer Security Resource Center
+  lm_core: 'https://w3id.org/lmodel/core/vocab/'
   linkml: 'https://w3id.org/linkml/'
-  SIO: 'http://semanticscience.org/resource/SIO_'   # Semanticscience Integrated Ontology
+  SIO: 'http://semanticscience.org/resource/SIO_'
   sumo: 'https://w3id.org/sumo/kb/'
   WIKIDATA: 'https://www.wikidata.org/wiki/'
 
@@ -188,7 +187,7 @@ classes:
       confidence:
         required: true
     related_mappings:
-      - lm-core:ConfidenceLevel
+      - lm_core:ConfidenceLevel
       # csrc:confidence_interval
 
   contextual compilation:
@@ -256,7 +255,7 @@ classes:
     name: grouping
     is_a: contextual compilation
     # mixins:
-    # - lm-core:ClassGroupingMixin
+    # - lm_core:ClassGroupingMixin
     slot_usage:
       context:
         multivalued: true
@@ -424,7 +423,7 @@ slots:
     exact_mappings:
       - NCIT:C42628
     narrow_mappings:
-      - lm-core:author
+      - lm_core:author
 
   definingContext:
     name: definingContext
@@ -436,7 +435,7 @@ slots:
     description: >-
       A description of a particular concept characterization.
     exact_mappings:
-      - lm-core:description
+      - lm_core:description
 
   endTime:
     name: endTime
@@ -488,7 +487,7 @@ slots:
       The name of a particular concept characterization.
     range: string type
     exact_mappings:
-      - lm-core:name
+      - lm_core:name
 
   namingAuthority:
     name: namingAuthority
@@ -502,7 +501,7 @@ slots:
       Specifies one or more UcoObjects.
     range: uco object
     exact_mappings:
-      - lm-core:entity
+      - lm_core:entity
 
   objectCreatedTime:
     name: objectCreatedTime
@@ -510,7 +509,7 @@ slots:
       The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept.
     range: time type
     close_mappings:
-      - lm-core:creation_date
+      - lm_core:creation_date
 
   objectMarking:
     name: objectMarking
@@ -530,7 +529,7 @@ slots:
       The originating node of a specified relationship.
     range: uco object
     exact_mappings:
-      - lm-core:subject
+      - lm_core:subject
 
   specVersion:
     name: specVersion
@@ -538,7 +537,7 @@ slots:
       The version of UCO ontology or subontology specification used to characterize a concept.
     range: string type
     close_mappings:
-      - lm-core:version
+      - lm_core:version
 
   startTime:
     name: startTime
@@ -564,7 +563,7 @@ slots:
       The terminating node of a specified relationship.
     range: uco object
     exact_mappings:
-      - lm-core:object
+      - lm_core:object
 
   value:
     name: value

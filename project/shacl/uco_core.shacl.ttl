@@ -7,10 +7,10 @@ uco_core:Annotation a sh:NodeShape ;
     sh:closed true ;
     sh:description "An annotation is an assertion made in relation to one or more objects." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
+    sh:property [ sh:description "The name of a particular concept characterization." ;
             sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path uco_core:objectCreatedTime ],
+            sh:order 3 ;
+            sh:path uco_core:name ],
         [ sh:description "The version of UCO ontology or subontology specification used to characterize a concept." ;
             sh:maxCount 1 ;
             sh:order 4 ;
@@ -18,42 +18,42 @@ uco_core:Annotation a sh:NodeShape ;
         [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
             sh:order 0 ;
             sh:path uco_core:objectMarking ],
-        [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
-            sh:order 2 ;
-            sh:path uco_core:modifiedTime ],
         [ sh:description "A description of a particular concept characterization." ;
             sh:maxCount 1 ;
             sh:order 5 ;
             sh:path uco_core:description ],
-        [ sh:description "The name of a particular concept characterization." ;
+        [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
             sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path uco_core:name ] ;
+            sh:order 1 ;
+            sh:path uco_core:objectCreatedTime ],
+        [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
+            sh:order 2 ;
+            sh:path uco_core:modifiedTime ] ;
     sh:targetClass uco_core:Annotation .
 
 uco_core:Assertion a sh:NodeShape ;
     sh:closed true ;
     sh:description "An assertion is a statement declared to be true." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "The version of UCO ontology or subontology specification used to characterize a concept." ;
-            sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path uco_core:specVersion ],
-        [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
-            sh:order 2 ;
-            sh:path uco_core:modifiedTime ],
-        [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
+    sh:property [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
             sh:maxCount 1 ;
             sh:order 1 ;
             sh:path uco_core:objectCreatedTime ],
-        [ sh:description "The name of a particular concept characterization." ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path uco_core:name ],
         [ sh:description "A description of a particular concept characterization." ;
             sh:maxCount 1 ;
             sh:order 5 ;
             sh:path uco_core:description ],
+        [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
+            sh:order 2 ;
+            sh:path uco_core:modifiedTime ],
+        [ sh:description "The name of a particular concept characterization." ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path uco_core:name ],
+        [ sh:description "The version of UCO ontology or subontology specification used to characterize a concept." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path uco_core:specVersion ],
         [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
             sh:order 0 ;
             sh:path uco_core:objectMarking ] ;
@@ -66,74 +66,49 @@ uco_core:AttributedName a sh:NodeShape ;
     sh:property [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
             sh:order 3 ;
             sh:path uco_core:modifiedTime ],
+        [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path uco_core:objectCreatedTime ],
+        [ sh:description "A description of a particular concept characterization." ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path uco_core:description ],
+        [ sh:description "The name of a particular concept characterization." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path uco_core:name ],
+        [ sh:description "Specifies the naming authority that issued the name of the entity." ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path uco_core:namingAuthority ],
         [ sh:description "The version of UCO ontology or subontology specification used to characterize a concept." ;
             sh:maxCount 1 ;
             sh:order 5 ;
             sh:path uco_core:specVersion ],
         [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
             sh:order 1 ;
-            sh:path uco_core:objectMarking ],
-        [ sh:description "A description of a particular concept characterization." ;
-            sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path uco_core:description ],
-        [ sh:description "Specifies the naming authority that issued the name of the entity." ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path uco_core:namingAuthority ],
-        [ sh:description "The name of a particular concept characterization." ;
-            sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path uco_core:name ],
-        [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path uco_core:objectCreatedTime ] ;
+            sh:path uco_core:objectMarking ] ;
     sh:targetClass uco_core:AttributedName .
 
 uco_core:Bundle a sh:NodeShape ;
     sh:closed true ;
     sh:description "A bundle is a container for a grouping of UCO content with no presumption of shared context." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "A description of a particular concept characterization." ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path uco_core:description ],
-        [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path uco_core:objectCreatedTime ],
+    sh:property [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
+            sh:order 2 ;
+            sh:path uco_core:modifiedTime ],
         [ sh:description "The name of a particular concept characterization." ;
             sh:maxCount 1 ;
             sh:order 3 ;
             sh:path uco_core:name ],
-        [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
-            sh:order 2 ;
-            sh:path uco_core:modifiedTime ],
-        [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
-            sh:order 0 ;
-            sh:path uco_core:objectMarking ],
-        [ sh:description "The version of UCO ontology or subontology specification used to characterize a concept." ;
-            sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path uco_core:specVersion ] ;
-    sh:targetClass uco_core:Bundle .
-
-uco_core:Compilation a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "A compilation is a grouping of things." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
-            sh:order 2 ;
-            sh:path uco_core:modifiedTime ],
         [ sh:description "A description of a particular concept characterization." ;
             sh:maxCount 1 ;
             sh:order 5 ;
             sh:path uco_core:description ],
-        [ sh:description "The name of a particular concept characterization." ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path uco_core:name ],
+        [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
+            sh:order 0 ;
+            sh:path uco_core:objectMarking ],
         [ sh:description "The version of UCO ontology or subontology specification used to characterize a concept." ;
             sh:maxCount 1 ;
             sh:order 4 ;
@@ -141,10 +116,35 @@ uco_core:Compilation a sh:NodeShape ;
         [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
             sh:maxCount 1 ;
             sh:order 1 ;
+            sh:path uco_core:objectCreatedTime ] ;
+    sh:targetClass uco_core:Bundle .
+
+uco_core:Compilation a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A compilation is a grouping of things." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
             sh:path uco_core:objectCreatedTime ],
+        [ sh:description "The version of UCO ontology or subontology specification used to characterize a concept." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path uco_core:specVersion ],
+        [ sh:description "A description of a particular concept characterization." ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path uco_core:description ],
+        [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
+            sh:order 2 ;
+            sh:path uco_core:modifiedTime ],
         [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
             sh:order 0 ;
-            sh:path uco_core:objectMarking ] ;
+            sh:path uco_core:objectMarking ],
+        [ sh:description "The name of a particular concept characterization." ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path uco_core:name ] ;
     sh:targetClass uco_core:Compilation .
 
 uco_core:ConfidenceFacet a sh:NodeShape ;
@@ -157,42 +157,52 @@ uco_core:ContextualCompilation a sh:NodeShape ;
     sh:closed true ;
     sh:description "A contextual compilation is a grouping of things sharing some context (e.g., a set of network connections observed on a given day, all accounts associated with a given person)." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "The version of UCO ontology or subontology specification used to characterize a concept." ;
+    sh:property [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path uco_core:objectCreatedTime ],
+        [ sh:description "A description of a particular concept characterization." ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path uco_core:description ],
+        [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
+            sh:order 2 ;
+            sh:path uco_core:modifiedTime ],
+        [ sh:description "The name of a particular concept characterization." ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path uco_core:name ],
+        [ sh:description "The version of UCO ontology or subontology specification used to characterize a concept." ;
             sh:maxCount 1 ;
             sh:order 4 ;
             sh:path uco_core:specVersion ],
         [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
             sh:order 0 ;
-            sh:path uco_core:objectMarking ],
-        [ sh:description "A description of a particular concept characterization." ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path uco_core:description ],
-        [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path uco_core:objectCreatedTime ],
-        [ sh:description "The name of a particular concept characterization." ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path uco_core:name ],
-        [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
-            sh:order 2 ;
-            sh:path uco_core:modifiedTime ] ;
+            sh:path uco_core:objectMarking ] ;
     sh:targetClass uco_core:ContextualCompilation .
 
 uco_core:ControlledVocabulary a sh:NodeShape ;
     sh:closed true ;
     sh:description "A controlled vocabulary is an explicitly constrained set of string values." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "The name of a particular concept characterization." ;
+    sh:property [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
+            sh:order 2 ;
+            sh:path uco_core:objectMarking ],
+        [ sh:description "A reference to a specification for an explicitly constrained set of string values. The specification may be unstructured (e.g., web page listing string values) or structured (e.g. RDF/OWL enumeration)." ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path uco_core:constrainingVocabularyReference ],
+        [ sh:description "The version of UCO ontology or subontology specification used to characterize a concept." ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path uco_core:specVersion ],
+        [ sh:description "The name of a particular concept characterization." ;
             sh:maxCount 1 ;
             sh:order 5 ;
             sh:path uco_core:name ],
-        [ sh:description "A description of a particular concept characterization." ;
-            sh:maxCount 1 ;
-            sh:order 7 ;
-            sh:path uco_core:description ],
+        [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
+            sh:order 4 ;
+            sh:path uco_core:modifiedTime ],
         [ sh:description "The name of an explicitly constrained set of string values." ;
             sh:maxCount 1 ;
             sh:order 1 ;
@@ -201,37 +211,27 @@ uco_core:ControlledVocabulary a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:order 3 ;
             sh:path uco_core:objectCreatedTime ],
-        [ sh:description "The version of UCO ontology or subontology specification used to characterize a concept." ;
+        [ sh:description "A description of a particular concept characterization." ;
             sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path uco_core:specVersion ],
-        [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
-            sh:order 4 ;
-            sh:path uco_core:modifiedTime ],
-        [ sh:description "A reference to a specification for an explicitly constrained set of string values. The specification may be unstructured (e.g., web page listing string values) or structured (e.g. RDF/OWL enumeration)." ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path uco_core:constrainingVocabularyReference ],
-        [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
-            sh:order 2 ;
-            sh:path uco_core:objectMarking ] ;
+            sh:order 7 ;
+            sh:path uco_core:description ] ;
     sh:targetClass uco_core:ControlledVocabulary .
 
 uco_core:EnclosingCompilation a sh:NodeShape ;
     sh:closed true ;
     sh:description "An enclosing compilation is a container for a grouping of things." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "A description of a particular concept characterization." ;
+    sh:property [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
+            sh:order 0 ;
+            sh:path uco_core:objectMarking ],
+        [ sh:description "A description of a particular concept characterization." ;
             sh:maxCount 1 ;
             sh:order 5 ;
             sh:path uco_core:description ],
-        [ sh:description "The version of UCO ontology or subontology specification used to characterize a concept." ;
+        [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
             sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path uco_core:specVersion ],
-        [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
-            sh:order 0 ;
-            sh:path uco_core:objectMarking ],
+            sh:order 1 ;
+            sh:path uco_core:objectCreatedTime ],
         [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
             sh:order 2 ;
             sh:path uco_core:modifiedTime ],
@@ -239,28 +239,28 @@ uco_core:EnclosingCompilation a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:order 3 ;
             sh:path uco_core:name ],
-        [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
+        [ sh:description "The version of UCO ontology or subontology specification used to characterize a concept." ;
             sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path uco_core:objectCreatedTime ] ;
+            sh:order 4 ;
+            sh:path uco_core:specVersion ] ;
     sh:targetClass uco_core:EnclosingCompilation .
 
 uco_core:ExternalReference a sh:NodeShape ;
     sh:closed true ;
     sh:description "Characteristics of a reference to a resource outside of the UCO." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "A URL for some information defined external to the UCO context." ;
+    sh:property [ sh:description "A description of the context relevant to the definition of a particular external reference identifier." ;
             sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path uco_core:referenceURL ],
+            sh:order 1 ;
+            sh:path uco_core:definingContext ],
         [ sh:description "An identifier for some information defined external to the UCO context." ;
             sh:maxCount 1 ;
             sh:order 2 ;
             sh:path uco_core:externalIdentifier ],
-        [ sh:description "A description of the context relevant to the definition of a particular external reference identifier." ;
+        [ sh:description "A URL for some information defined external to the UCO context." ;
             sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path uco_core:definingContext ] ;
+            sh:order 0 ;
+            sh:path uco_core:referenceURL ] ;
     sh:targetClass uco_core:ExternalReference .
 
 uco_core:Facet a sh:NodeShape ;
@@ -273,6 +273,34 @@ uco_core:Grouping a sh:NodeShape ;
     sh:closed true ;
     sh:description "A grouping is a compilation of referenced UCO content with a shared context." ;
     sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "The version of UCO ontology or subontology specification used to characterize a concept." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path uco_core:specVersion ],
+        [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
+            sh:order 0 ;
+            sh:path uco_core:objectMarking ],
+        [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
+            sh:order 2 ;
+            sh:path uco_core:modifiedTime ],
+        [ sh:description "A description of a particular concept characterization." ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path uco_core:description ],
+        [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path uco_core:objectCreatedTime ],
+        [ sh:description "The name of a particular concept characterization." ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path uco_core:name ] ;
+    sh:targetClass uco_core:Grouping .
+
+uco_core:IdentityAbstraction a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "An identity abstraction is a grouping of identifying characteristics unique to an individual or organization. This class is an ontological structural abstraction for this concept. Implementations of this concept should utilize the identity:Identity class." ;
+    sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:description "The name of a particular concept characterization." ;
             sh:maxCount 1 ;
             sh:order 3 ;
@@ -284,83 +312,26 @@ uco_core:Grouping a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:order 4 ;
             sh:path uco_core:specVersion ],
+        [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
+            sh:order 0 ;
+            sh:path uco_core:objectMarking ],
         [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
             sh:maxCount 1 ;
             sh:order 1 ;
             sh:path uco_core:objectCreatedTime ],
-        [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
-            sh:order 0 ;
-            sh:path uco_core:objectMarking ],
         [ sh:description "A description of a particular concept characterization." ;
             sh:maxCount 1 ;
             sh:order 5 ;
             sh:path uco_core:description ] ;
-    sh:targetClass uco_core:Grouping .
-
-uco_core:IdentityAbstraction a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "An identity abstraction is a grouping of identifying characteristics unique to an individual or organization. This class is an ontological structural abstraction for this concept. Implementations of this concept should utilize the identity:Identity class." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "A description of a particular concept characterization." ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path uco_core:description ],
-        [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path uco_core:objectCreatedTime ],
-        [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
-            sh:order 2 ;
-            sh:path uco_core:modifiedTime ],
-        [ sh:description "The version of UCO ontology or subontology specification used to characterize a concept." ;
-            sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path uco_core:specVersion ],
-        [ sh:description "The name of a particular concept characterization." ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path uco_core:name ],
-        [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
-            sh:order 0 ;
-            sh:path uco_core:objectMarking ] ;
     sh:targetClass uco_core:IdentityAbstraction .
 
 uco_core:Item a sh:NodeShape ;
     sh:closed true ;
     sh:description "An item is a distinct article or unit." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
-            sh:order 2 ;
-            sh:path uco_core:modifiedTime ],
-        [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
+    sh:property [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
             sh:order 0 ;
             sh:path uco_core:objectMarking ],
-        [ sh:description "The name of a particular concept characterization." ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path uco_core:name ],
-        [ sh:description "A description of a particular concept characterization." ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path uco_core:description ],
-        [ sh:description "The version of UCO ontology or subontology specification used to characterize a concept." ;
-            sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path uco_core:specVersion ],
-        [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path uco_core:objectCreatedTime ] ;
-    sh:targetClass uco_core:Item .
-
-uco_core:MarkingDefinitionAbstraction a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "A marking definition abstraction is a grouping of characteristics unique to the expression of a specific data marking conveying restrictions, permissions, and other guidance for how marked data can be used and shared. This class is an ontological structural abstraction for this concept. Implementations of this concept should utilize the marking:MarkingDefinition class." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "A description of a particular concept characterization." ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path uco_core:description ],
         [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
             sh:maxCount 1 ;
             sh:order 1 ;
@@ -369,13 +340,42 @@ uco_core:MarkingDefinitionAbstraction a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:order 4 ;
             sh:path uco_core:specVersion ],
+        [ sh:description "A description of a particular concept characterization." ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path uco_core:description ],
         [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
             sh:order 2 ;
             sh:path uco_core:modifiedTime ],
         [ sh:description "The name of a particular concept characterization." ;
             sh:maxCount 1 ;
             sh:order 3 ;
+            sh:path uco_core:name ] ;
+    sh:targetClass uco_core:Item .
+
+uco_core:MarkingDefinitionAbstraction a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A marking definition abstraction is a grouping of characteristics unique to the expression of a specific data marking conveying restrictions, permissions, and other guidance for how marked data can be used and shared. This class is an ontological structural abstraction for this concept. Implementations of this concept should utilize the marking:MarkingDefinition class." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "The version of UCO ontology or subontology specification used to characterize a concept." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path uco_core:specVersion ],
+        [ sh:description "The name of a particular concept characterization." ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
             sh:path uco_core:name ],
+        [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path uco_core:objectCreatedTime ],
+        [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
+            sh:order 2 ;
+            sh:path uco_core:modifiedTime ],
+        [ sh:description "A description of a particular concept characterization." ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path uco_core:description ],
         [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
             sh:order 0 ;
             sh:path uco_core:objectMarking ] ;
@@ -388,17 +388,10 @@ uco_core:ModusOperandi a sh:NodeShape ;
     sh:property [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
             sh:order 2 ;
             sh:path uco_core:modifiedTime ],
-        [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
-            sh:order 0 ;
-            sh:path uco_core:objectMarking ],
         [ sh:description "A description of a particular concept characterization." ;
             sh:maxCount 1 ;
             sh:order 5 ;
             sh:path uco_core:description ],
-        [ sh:description "The name of a particular concept characterization." ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path uco_core:name ],
         [ sh:description "The version of UCO ontology or subontology specification used to characterize a concept." ;
             sh:maxCount 1 ;
             sh:order 4 ;
@@ -406,25 +399,46 @@ uco_core:ModusOperandi a sh:NodeShape ;
         [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
             sh:maxCount 1 ;
             sh:order 1 ;
-            sh:path uco_core:objectCreatedTime ] ;
+            sh:path uco_core:objectCreatedTime ],
+        [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
+            sh:order 0 ;
+            sh:path uco_core:objectMarking ],
+        [ sh:description "The name of a particular concept characterization." ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path uco_core:name ] ;
     sh:targetClass uco_core:ModusOperandi .
 
 uco_core:Relationship a sh:NodeShape ;
     sh:closed true ;
     sh:description "A relationship is a grouping of characteristics unique to an assertion that one or more objects are related to another object in some way." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "The ending time of a time range." ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path uco_core:endTime ],
+    sh:property [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
+            sh:order 3 ;
+            sh:path uco_core:objectMarking ],
         [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
             sh:maxCount 1 ;
             sh:order 4 ;
             sh:path uco_core:objectCreatedTime ],
+        [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
+            sh:order 5 ;
+            sh:path uco_core:modifiedTime ],
+        [ sh:description "The initial time of a time range." ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path uco_core:startTime ],
+        [ sh:description "A characterization of the nature of a relationship between objects." ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path uco_core:kindOfRelationship ],
         [ sh:description "The version of UCO ontology or subontology specification used to characterize a concept." ;
             sh:maxCount 1 ;
             sh:order 7 ;
             sh:path uco_core:specVersion ],
+        [ sh:description "The ending time of a time range." ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path uco_core:endTime ],
         [ sh:description "The name of a particular concept characterization." ;
             sh:maxCount 1 ;
             sh:order 6 ;
@@ -432,21 +446,7 @@ uco_core:Relationship a sh:NodeShape ;
         [ sh:description "A description of a particular concept characterization." ;
             sh:maxCount 1 ;
             sh:order 8 ;
-            sh:path uco_core:description ],
-        [ sh:description "The initial time of a time range." ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path uco_core:startTime ],
-        [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
-            sh:order 5 ;
-            sh:path uco_core:modifiedTime ],
-        [ sh:description "A characterization of the nature of a relationship between objects." ;
-            sh:maxCount 1 ;
-            sh:order 2 ;
-            sh:path uco_core:kindOfRelationship ],
-        [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
-            sh:order 3 ;
-            sh:path uco_core:objectMarking ] ;
+            sh:path uco_core:description ] ;
     sh:targetClass uco_core:Relationship .
 
 uco_core:UcoInherentCharacterizationThing a sh:NodeShape ;
@@ -459,28 +459,28 @@ uco_core:UcoObject a sh:NodeShape ;
     sh:closed true ;
     sh:description "A UCO object is a representation of a fundamental concept either directly inherent to the cyber domain or indirectly related to the cyber domain and necessary for contextually characterizing cyber domain concepts and relationships. Within the Unified Cyber Ontology (UCO) structure this is the base class acting as a consistent, unifying and interoperable foundation for all explicit and inter-relatable content objects." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path uco_core:objectCreatedTime ],
-        [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
-            sh:order 2 ;
-            sh:path uco_core:modifiedTime ],
+    sh:property [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
+            sh:order 0 ;
+            sh:path uco_core:objectMarking ],
         [ sh:description "The version of UCO ontology or subontology specification used to characterize a concept." ;
             sh:maxCount 1 ;
             sh:order 4 ;
             sh:path uco_core:specVersion ],
-        [ sh:description "Marking definitions to be applied to a particular concept characterization in its entirety." ;
-            sh:order 0 ;
-            sh:path uco_core:objectMarking ],
+        [ sh:description "A description of a particular concept characterization." ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path uco_core:description ],
+        [ sh:description "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds)." ;
+            sh:order 2 ;
+            sh:path uco_core:modifiedTime ],
         [ sh:description "The name of a particular concept characterization." ;
             sh:maxCount 1 ;
             sh:order 3 ;
             sh:path uco_core:name ],
-        [ sh:description "A description of a particular concept characterization." ;
+        [ sh:description "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." ;
             sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path uco_core:description ] ;
+            sh:order 1 ;
+            sh:path uco_core:objectCreatedTime ] ;
     sh:targetClass uco_core:UcoObject .
 
 uco_core:UcoThing a sh:NodeShape ;

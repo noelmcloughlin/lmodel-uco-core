@@ -8,7 +8,7 @@
    "WIKIDATA": "https://www.wikidata.org/wiki/",
    "dcid": "https://datacommons.org/browser/",
    "linkml": "https://w3id.org/linkml/",
-   "lm-core": "https://w3id.org/lmodel/core/vocab/",
+   "lm_core": "https://w3id.org/lmodel/core/vocab/",
    "owl": "http://www.w3.org/2002/07/owl#",
    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",

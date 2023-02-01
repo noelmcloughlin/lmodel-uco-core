@@ -4,7 +4,7 @@
 @prefix dcid: <https://datacommons.org/browser/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix linkml: <https://w3id.org/linkml/> .
-@prefix lm-core: <https://w3id.org/lmodel/core/vocab/> .
+@prefix lm_core: <https://w3id.org/lmodel/core/vocab/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix pav: <http://purl.org/pav/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -25,11 +25,11 @@ linkml:topValue a owl:DatatypeProperty ;
     dcterms:license "https://www.apache.org/licenses/LICENSE-2.0" ;
     dcterms:title "UCO Core" ;
     pav:version "0.1.0" ;
-    linkml:generation_date "2023-01-30T23:21:00" ;
+    linkml:generation_date "2023-02-01T00:02:55" ;
     linkml:metamodel_version "1.7.0" ;
     linkml:source_file "uco_core.yaml" ;
-    linkml:source_file_date "2023-01-30T23:20:17" ;
-    linkml:source_file_size 16646 .
+    linkml:source_file_date "2023-02-01T00:01:26" ;
+    linkml:source_file_size 16515 .
 
 uco_core:Annotation a owl:Class,
         linkml:ClassDefinition ;
@@ -78,12 +78,16 @@ uco_core:ConfidenceFacet a owl:Class,
             owl:qualifiedCardinality 1 ],
         uco_core:Facet ;
     skos:definition "A confidence is a grouping of characteristics unique to an asserted level of certainty in the accuracy of some information." ;
-    skos:relatedMatch lm-core:ConfidenceLevel .
+    skos:relatedMatch lm_core:ConfidenceLevel .
 
 uco_core:ControlledVocabulary a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "controlled vocabulary" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass uco_core:IriType ;
+            owl:onProperty uco_core:constrainingVocabularyReference ],
+        [ a owl:Restriction ;
             owl:onClass uco_core:StringType ;
             owl:onProperty uco_core:value ;
             owl:qualifiedCardinality 1 ],
@@ -91,10 +95,6 @@ uco_core:ControlledVocabulary a owl:Class,
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty uco_core:constrainingVocabularyName ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass uco_core:IriType ;
-            owl:onProperty uco_core:constrainingVocabularyReference ],
         uco_core:UcoObject ;
     skos:definition "A controlled vocabulary is an explicitly constrained set of string values." ;
     skos:exactMatch <http://purl.obolibrary.org/obo/NCIT_C48697>,
@@ -141,6 +141,10 @@ uco_core:Relationship a owl:Class,
             owl:onClass uco_core:TimeType ;
             owl:onProperty uco_core:startTime ],
         [ a owl:Restriction ;
+            owl:onClass uco_core:BooleanType ;
+            owl:onProperty uco_core:isDirectional ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty uco_core:kindOfRelationship ],
@@ -150,10 +154,6 @@ uco_core:Relationship a owl:Class,
                         owl:onProperty uco_core:source ] [ a owl:Restriction ;
                         owl:onProperty uco_core:source ;
                         owl:someValuesFrom uco_core:IriType ] ) ],
-        [ a owl:Restriction ;
-            owl:onClass uco_core:BooleanType ;
-            owl:onProperty uco_core:isDirectional ;
-            owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
             owl:onClass uco_core:IriType ;
             owl:onProperty uco_core:target ;
@@ -217,16 +217,16 @@ uco_core:ExternalReference a owl:Class,
     rdfs:label "external reference" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
+            owl:onClass uco_core:IriType ;
+            owl:onProperty uco_core:referenceURL ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty uco_core:externalIdentifier ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty uco_core:definingContext ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass uco_core:IriType ;
-            owl:onProperty uco_core:referenceURL ],
         uco_core:UcoInherentCharacterizationThing ;
     skos:definition "Characteristics of a reference to a resource outside of the UCO." .
 
@@ -280,7 +280,7 @@ uco_core:createdBy a owl:ObjectProperty,
     rdfs:range linkml:String ;
     skos:definition "The identity that created a characterization of a concept." ;
     skos:exactMatch <http://purl.obolibrary.org/obo/NCIT_C42628> ;
-    skos:narrowMatch lm-core:author .
+    skos:narrowMatch lm_core:author .
 
 uco_core:definingContext a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -293,7 +293,7 @@ uco_core:description a owl:ObjectProperty,
     rdfs:label "description" ;
     rdfs:range linkml:String ;
     skos:definition "A description of a particular concept characterization." ;
-    skos:exactMatch lm-core:description .
+    skos:exactMatch lm_core:description .
 
 uco_core:endTime a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -347,7 +347,7 @@ uco_core:name a owl:ObjectProperty,
     rdfs:label "name" ;
     rdfs:range uco_core:StringType ;
     skos:definition "The name of a particular concept characterization." ;
-    skos:exactMatch lm-core:name .
+    skos:exactMatch lm_core:name .
 
 uco_core:namingAuthority a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -359,7 +359,7 @@ uco_core:objectCreatedTime a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "objectCreatedTime" ;
     rdfs:range uco_core:TimeType ;
-    skos:closeMatch lm-core:creation_date ;
+    skos:closeMatch lm_core:creation_date ;
     skos:definition "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept." .
 
 uco_core:objectMarking a owl:ObjectProperty,
@@ -378,7 +378,7 @@ uco_core:specVersion a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "specVersion" ;
     rdfs:range uco_core:StringType ;
-    skos:closeMatch lm-core:version ;
+    skos:closeMatch lm_core:version ;
     skos:definition "The version of UCO ontology or subontology specification used to characterize a concept." .
 
 uco_core:startTime a owl:ObjectProperty,
@@ -404,7 +404,7 @@ uco_core:target a owl:ObjectProperty,
     rdfs:label "target" ;
     rdfs:range uco_core:UcoObject ;
     skos:definition "The terminating node of a specified relationship." ;
-    skos:exactMatch lm-core:object .
+    skos:exactMatch lm_core:object .
 
 uco_core:value a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -448,7 +448,7 @@ uco_core:source a owl:ObjectProperty,
     rdfs:label "source" ;
     rdfs:range uco_core:UcoObject ;
     skos:definition "The originating node of a specified relationship." ;
-    skos:exactMatch lm-core:subject .
+    skos:exactMatch lm_core:subject .
 
 uco_core:UcoThing a owl:Class,
         linkml:ClassDefinition ;
@@ -465,7 +465,7 @@ uco_core:object a owl:ObjectProperty,
     rdfs:label "object" ;
     rdfs:range uco_core:UcoObject ;
     skos:definition "Specifies one or more UcoObjects." ;
-    skos:exactMatch lm-core:entity .
+    skos:exactMatch lm_core:entity .
 
 linkml:TypeDefinition a owl:Class ;
     rdfs:label "type_definition" .
@@ -489,23 +489,19 @@ uco_core:UcoObject a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "uco object" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom uco_core:IriType ;
-            owl:onProperty uco_core:externalReference ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty uco_core:description ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass uco_core:IriType ;
-            owl:onProperty uco_core:createdBy ],
+            owl:onClass uco_core:StringType ;
+            owl:onProperty uco_core:name ],
         [ a owl:Restriction ;
             owl:allValuesFrom uco_core:IriType ;
             owl:onProperty uco_core:objectMarking ],
         [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass uco_core:StringType ;
-            owl:onProperty uco_core:specVersion ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty uco_core:description ],
+            owl:allValuesFrom uco_core:IriType ;
+            owl:onProperty uco_core:externalReference ],
         [ a owl:Restriction ;
             owl:allValuesFrom uco_core:StringType ;
             owl:onProperty uco_core:tag ],
@@ -514,15 +510,19 @@ uco_core:UcoObject a owl:Class,
             owl:onClass uco_core:TimeType ;
             owl:onProperty uco_core:objectCreatedTime ],
         [ a owl:Restriction ;
+            owl:allValuesFrom uco_core:TimeType ;
+            owl:onProperty uco_core:modifiedTime ],
+        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass uco_core:StringType ;
-            owl:onProperty uco_core:name ],
+            owl:onProperty uco_core:specVersion ],
         [ a owl:Restriction ;
             owl:allValuesFrom uco_core:IriType ;
             owl:onProperty uco_core:hasFacet ],
         [ a owl:Restriction ;
-            owl:allValuesFrom uco_core:TimeType ;
-            owl:onProperty uco_core:modifiedTime ],
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass uco_core:IriType ;
+            owl:onProperty uco_core:createdBy ],
         uco_core:UcoThing ;
     skos:definition "A UCO object is a representation of a fundamental concept either directly inherent to the cyber domain or indirectly related to the cyber domain and necessary for contextually characterizing cyber domain concepts and relationships. Within the Unified Cyber Ontology (UCO) structure this is the base class acting as a consistent, unifying and interoperable foundation for all explicit and inter-relatable content objects." ;
     skos:relatedMatch SIO:000776,

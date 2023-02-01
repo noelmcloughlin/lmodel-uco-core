@@ -1,5 +1,5 @@
 # Auto generated from uco_core.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-01-30T23:21:04
+# Generation date: 2023-02-01T00:02:59
 # Schema: uco-core
 #
 # id: https://w3id.org/lmodel/uco/core
@@ -43,7 +43,7 @@ SO = CurieNamespace('SO', 'http://purl.obolibrary.org/obo/SO_')
 WIKIDATA = CurieNamespace('WIKIDATA', 'https://www.wikidata.org/wiki/')
 DCID = CurieNamespace('dcid', 'https://datacommons.org/browser/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
-LM_CORE = CurieNamespace('lm-core', 'https://w3id.org/lmodel/core/vocab/')
+LM_CORE = CurieNamespace('lm_core', 'https://w3id.org/lmodel/core/vocab/')
 OWL = CurieNamespace('owl', 'http://www.w3.org/2002/07/owl#')
 RDF = CurieNamespace('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 RDFS = CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
