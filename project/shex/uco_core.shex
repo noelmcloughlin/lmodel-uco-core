@@ -1,4 +1,4 @@
-BASE <https://w3id.org/lmodel/uco/core/vocab/>
+BASE <https://w3id.org/lmodel/uco-core/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX linkml: <https://w3id.org/linkml/>
@@ -39,6 +39,8 @@ linkml:Datetime xsd:dateTime
 linkml:DateOrDatetime linkml:DateOrDatetime
 
 linkml:Uriorcurie IRI
+
+linkml:Curie xsd:string
 
 linkml:Uri IRI
 

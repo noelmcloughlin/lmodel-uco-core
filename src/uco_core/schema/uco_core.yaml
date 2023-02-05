@@ -23,13 +23,13 @@ version: 0.1.0  # sync with primary git repo release tag
 
 prefixes:
   dcid: 'https://datacommons.org/browser/'
-  lm_core: 'https://w3id.org/lmodel/core/vocab/'
+  lm_core: 'https://w3id.org/lmodel/core/'
   linkml: 'https://w3id.org/linkml/'
   SIO: 'http://semanticscience.org/resource/SIO_'
   sumo: 'https://w3id.org/sumo/kb/'
   WIKIDATA: 'https://www.wikidata.org/wiki/'
 
-  uco_core: 'https://w3id.org/lmodel/uco/core/vocab/'
+  uco_core: 'https://w3id.org/lmodel/uco-core/'
 
 default_prefix: uco_core
 default_range: string

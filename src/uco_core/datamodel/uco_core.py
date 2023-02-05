@@ -1,5 +1,5 @@
 # Auto generated from uco_core.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-02-01T00:02:59
+# Generation date: 2023-02-05T22:38:21
 # Schema: uco-core
 #
 # id: https://w3id.org/lmodel/uco/core
@@ -43,13 +43,13 @@ SO = CurieNamespace('SO', 'http://purl.obolibrary.org/obo/SO_')
 WIKIDATA = CurieNamespace('WIKIDATA', 'https://www.wikidata.org/wiki/')
 DCID = CurieNamespace('dcid', 'https://datacommons.org/browser/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
-LM_CORE = CurieNamespace('lm_core', 'https://w3id.org/lmodel/core/vocab/')
+LM_CORE = CurieNamespace('lm_core', 'https://w3id.org/lmodel/core/')
 OWL = CurieNamespace('owl', 'http://www.w3.org/2002/07/owl#')
 RDF = CurieNamespace('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
 RDFS = CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
 SKOS = CurieNamespace('skos', 'http://www.w3.org/2004/02/skos/core#')
 SUMO = CurieNamespace('sumo', 'https://w3id.org/sumo/kb/')
-UCO_CORE = CurieNamespace('uco_core', 'https://w3id.org/lmodel/uco/core/vocab/')
+UCO_CORE = CurieNamespace('uco_core', 'https://w3id.org/lmodel/uco-core/')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = UCO_CORE
 

@@ -15,7 +15,7 @@
     },
     {
       "prefix_prefix": "lm_core",
-      "prefix_reference": "https://w3id.org/lmodel/core/vocab/"
+      "prefix_reference": "https://w3id.org/lmodel/core/"
     },
     {
       "prefix_prefix": "linkml",
@@ -35,7 +35,7 @@
     },
     {
       "prefix_prefix": "uco_core",
-      "prefix_reference": "https://w3id.org/lmodel/uco/core/vocab/"
+      "prefix_reference": "https://w3id.org/lmodel/uco-core/"
     }
   ],
   "emit_prefixes": [
@@ -57,7 +57,7 @@
   "types": [
     {
       "name": "string_type",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/StringType",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/StringType",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "typeof": "string",
       "base": "str",
@@ -66,7 +66,7 @@
     },
     {
       "name": "literal_type",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/LiteralType",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/LiteralType",
       "description": "Literals are used for values such as strings, numbers, and dates.",
       "notes": [
         "not sure if needed or how to use if needed"
@@ -79,7 +79,7 @@
     },
     {
       "name": "non_negative_integer_type",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/NonNegativeIntegerType",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/NonNegativeIntegerType",
       "description": "real number strictly greater than zero",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
@@ -92,7 +92,7 @@
     },
     {
       "name": "statement_type",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/StatementType",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/StatementType",
       "description": "meaningful declarative sentence that is either true or false, or that which a true or false declarative sentence asserts",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "typeof": "string_type",
@@ -102,7 +102,7 @@
     },
     {
       "name": "iri_type",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/IriType",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/IriType",
       "description": "",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "typeof": "uriorcurie",
@@ -113,7 +113,7 @@
     },
     {
       "name": "boolean_type",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/BooleanType",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/BooleanType",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "typeof": "boolean",
       "base": "Bool",
@@ -123,7 +123,7 @@
     },
     {
       "name": "time_type",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/TimeType",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/TimeType",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "related_mappings": [
         "sumo:TimePoint"
@@ -140,6 +140,9 @@
       "description": "A character string",
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Text"
+      ],
       "base": "str",
       "uri": "http://www.w3.org/2001/XMLSchema#string",
       "@type": "TypeDefinition"
@@ -150,6 +153,9 @@
       "description": "An integer",
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
       "base": "int",
       "uri": "http://www.w3.org/2001/XMLSchema#integer",
       "@type": "TypeDefinition"
@@ -160,6 +166,9 @@
       "description": "A binary (true or false) value",
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
       "base": "Bool",
       "uri": "http://www.w3.org/2001/XMLSchema#boolean",
       "repr": "bool",
@@ -171,6 +180,9 @@
       "description": "A real number that conforms to the xsd:float specification",
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Float"
+      ],
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#float",
       "@type": "TypeDefinition"
@@ -181,6 +193,9 @@
       "description": "A real number that conforms to the xsd:double specification",
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
+      "close_mappings": [
+        "schema:Float"
+      ],
       "base": "float",
       "uri": "http://www.w3.org/2001/XMLSchema#double",
       "@type": "TypeDefinition"
@@ -191,6 +206,9 @@
       "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
+      "broad_mappings": [
+        "schema:Number"
+      ],
       "base": "Decimal",
       "uri": "http://www.w3.org/2001/XMLSchema#decimal",
       "@type": "TypeDefinition"
@@ -204,6 +222,9 @@
       ],
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Time"
+      ],
       "base": "XSDTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
@@ -218,6 +239,9 @@
       ],
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Date"
+      ],
       "base": "XSDDate",
       "uri": "http://www.w3.org/2001/XMLSchema#date",
       "repr": "str",
@@ -229,6 +253,9 @@
       "description": "The combination of a date and time",
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
       "base": "XSDDateTime",
       "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
       "repr": "str",
@@ -257,11 +284,34 @@
       "@type": "TypeDefinition"
     },
     {
-      "name": "uri",
-      "definition_uri": "https://w3id.org/linkml/Uri",
-      "description": "a complete URI",
+      "name": "curie",
+      "definition_uri": "https://w3id.org/linkml/Curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
       "from_schema": "https://w3id.org/linkml/types",
       "imported_from": "linkml:types",
+      "base": "Curie",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uri",
+      "definition_uri": "https://w3id.org/linkml/Uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "close_mappings": [
+        "schema:URL"
+      ],
       "base": "URI",
       "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
       "repr": "str",
@@ -307,7 +357,7 @@
   "slots": [
     {
       "name": "confidence",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/confidence",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/confidence",
       "description": "An asserted level of certainty in the accuracy of some information.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "close_mappings": [
@@ -316,7 +366,7 @@
       "related_mappings": [
         "https://www.wikidata.org/wiki/Q1048607"
       ],
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/confidence",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/confidence",
       "range": "non_negative_integer_type",
       "minimum_value": 0,
       "maximum_value": 100,
@@ -324,10 +374,10 @@
     },
     {
       "name": "constrainingVocabularyName",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/constrainingVocabularyName",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/constrainingVocabularyName",
       "description": "The name of an explicitly constrained set of string values.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/constrainingVocabularyName",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/constrainingVocabularyName",
       "owner": "ControlledVocabulary",
       "domain_of": [
         "ControlledVocabulary"
@@ -337,10 +387,10 @@
     },
     {
       "name": "constrainingVocabularyReference",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/constrainingVocabularyReference",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/constrainingVocabularyReference",
       "description": "A reference to a specification for an explicitly constrained set of string values. The specification may be unstructured (e.g., web page listing string values) or structured (e.g. RDF/OWL enumeration).",
       "from_schema": "https://w3id.org/lmodel/uco/core",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/constrainingVocabularyReference",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/constrainingVocabularyReference",
       "owner": "ControlledVocabulary",
       "domain_of": [
         "ControlledVocabulary"
@@ -350,7 +400,7 @@
     },
     {
       "name": "context",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/context",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/context",
       "description": "A description of particular contextual affinity.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
@@ -363,33 +413,33 @@
       "narrow_mappings": [
         "https://www.wikidata.org/wiki/Q196626"
       ],
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/context",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/context",
       "range": "string",
       "@type": "SlotDefinition"
     },
     {
       "name": "createdBy",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/createdBy",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/createdBy",
       "description": "The identity that created a characterization of a concept.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
         "http://purl.obolibrary.org/obo/NCIT_C42628"
       ],
       "narrow_mappings": [
-        "https://w3id.org/lmodel/core/vocab/author"
+        "https://w3id.org/lmodel/core/author"
       ],
       "domain": "IdentityAbstraction",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/createdBy",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/createdBy",
       "owner": "createdBy",
       "range": "string",
       "@type": "SlotDefinition"
     },
     {
       "name": "definingContext",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/definingContext",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/definingContext",
       "description": "A description of the context relevant to the definition of a particular external reference identifier.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/definingContext",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/definingContext",
       "owner": "ExternalReference",
       "domain_of": [
         "ExternalReference"
@@ -399,13 +449,13 @@
     },
     {
       "name": "description",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/description",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/description",
       "description": "A description of a particular concept characterization.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
-        "https://w3id.org/lmodel/core/vocab/description"
+        "https://w3id.org/lmodel/core/description"
       ],
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/description",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/description",
       "owner": "UcoObject",
       "domain_of": [
         "UcoObject"
@@ -415,7 +465,7 @@
     },
     {
       "name": "endTime",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/endTime",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/endTime",
       "description": "The ending time of a time range.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
@@ -423,7 +473,7 @@
         "http://semanticscience.org/resource/SIO_000670",
         "https://www.wikidata.org/wiki/Q24575125"
       ],
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/endTime",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/endTime",
       "owner": "Relationship",
       "domain_of": [
         "Relationship"
@@ -433,10 +483,10 @@
     },
     {
       "name": "externalIdentifier",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/externalIdentifier",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/externalIdentifier",
       "description": "An identifier for some information defined external to the UCO context.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/externalIdentifier",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/externalIdentifier",
       "owner": "ExternalReference",
       "domain_of": [
         "ExternalReference"
@@ -446,41 +496,41 @@
     },
     {
       "name": "externalReference",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/externalReference",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/externalReference",
       "description": "Specifies a reference to a resource outside of the UCO.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "domain": "ExternalReference",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/externalReference",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/externalReference",
       "owner": "externalReference",
       "range": "string",
       "@type": "SlotDefinition"
     },
     {
       "name": "hasFacet",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/hasFacet",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/hasFacet",
       "description": "Further sets of properties characterizing a concept based on the particular context of the class and of the particular instance of the concept being characterized.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "domain": "Facet",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/hasFacet",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/hasFacet",
       "owner": "hasFacet",
       "range": "string",
       "@type": "SlotDefinition"
     },
     {
       "name": "isDirectional",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/isDirectional",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/isDirectional",
       "description": "A specification whether or not a relationship assertion is limited to the context FROM a source object(s) TO a target object.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/isDirectional",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/isDirectional",
       "range": "boolean_type",
       "@type": "SlotDefinition"
     },
     {
       "name": "kindOfRelationship",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/kindOfRelationship",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/kindOfRelationship",
       "description": "A characterization of the nature of a relationship between objects.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/kindOfRelationship",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/kindOfRelationship",
       "owner": "Relationship",
       "domain_of": [
         "Relationship"
@@ -490,10 +540,10 @@
     },
     {
       "name": "modifiedTime",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/modifiedTime",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/modifiedTime",
       "description": "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds).",
       "from_schema": "https://w3id.org/lmodel/uco/core",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/modifiedTime",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/modifiedTime",
       "owner": "UcoObject",
       "domain_of": [
         "UcoObject"
@@ -503,13 +553,13 @@
     },
     {
       "name": "name",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/name",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/name",
       "description": "The name of a particular concept characterization.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
-        "https://w3id.org/lmodel/core/vocab/name"
+        "https://w3id.org/lmodel/core/name"
       ],
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/name",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/name",
       "owner": "UcoObject",
       "domain_of": [
         "UcoObject"
@@ -519,10 +569,10 @@
     },
     {
       "name": "namingAuthority",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/namingAuthority",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/namingAuthority",
       "description": "Specifies the naming authority that issued the name of the entity.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/namingAuthority",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/namingAuthority",
       "owner": "AttributedName",
       "domain_of": [
         "AttributedName"
@@ -532,26 +582,26 @@
     },
     {
       "name": "object",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/object",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/object",
       "description": "Specifies one or more UcoObjects.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
-        "https://w3id.org/lmodel/core/vocab/entity"
+        "https://w3id.org/lmodel/core/entity"
       ],
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/object",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/object",
       "range": "UcoObject",
       "inlined": true,
       "@type": "SlotDefinition"
     },
     {
       "name": "objectCreatedTime",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/objectCreatedTime",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/objectCreatedTime",
       "description": "The time at which a characterization of a concept is created. This time pertains to the time of creating the record object, and is not an intrinsic characteristic of the concept.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "close_mappings": [
-        "https://w3id.org/lmodel/core/vocab/creation_date"
+        "https://w3id.org/lmodel/core/creation_date"
       ],
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/objectCreatedTime",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/objectCreatedTime",
       "owner": "UcoObject",
       "domain_of": [
         "UcoObject"
@@ -561,10 +611,10 @@
     },
     {
       "name": "objectMarking",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/objectMarking",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/objectMarking",
       "description": "Marking definitions to be applied to a particular concept characterization in its entirety.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/objectMarking",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/objectMarking",
       "owner": "UcoObject",
       "domain_of": [
         "UcoObject"
@@ -575,10 +625,10 @@
     },
     {
       "name": "referenceURL",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/referenceURL",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/referenceURL",
       "description": "A URL for some information defined external to the UCO context.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/referenceURL",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/referenceURL",
       "owner": "ExternalReference",
       "domain_of": [
         "ExternalReference"
@@ -588,26 +638,26 @@
     },
     {
       "name": "source",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/source",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/source",
       "description": "The originating node of a specified relationship.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
-        "https://w3id.org/lmodel/core/vocab/subject"
+        "https://w3id.org/lmodel/core/subject"
       ],
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/source",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/source",
       "range": "UcoObject",
       "inlined": true,
       "@type": "SlotDefinition"
     },
     {
       "name": "specVersion",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/specVersion",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/specVersion",
       "description": "The version of UCO ontology or subontology specification used to characterize a concept.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "close_mappings": [
-        "https://w3id.org/lmodel/core/vocab/version"
+        "https://w3id.org/lmodel/core/version"
       ],
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/specVersion",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/specVersion",
       "owner": "UcoObject",
       "domain_of": [
         "UcoObject"
@@ -617,10 +667,10 @@
     },
     {
       "name": "startTime",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/startTime",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/startTime",
       "description": "The initial time of a time range.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/startTime",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/startTime",
       "owner": "Relationship",
       "domain_of": [
         "Relationship"
@@ -630,55 +680,55 @@
     },
     {
       "name": "statement",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/statement",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/statement",
       "description": "A textual statement of an assertion.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/statement",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/statement",
       "range": "string_type",
       "@type": "SlotDefinition"
     },
     {
       "name": "tag",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/tag",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/tag",
       "description": "A generic tag/label.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/tag",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/tag",
       "range": "string_type",
       "@type": "SlotDefinition"
     },
     {
       "name": "target",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/target",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/target",
       "description": "The terminating node of a specified relationship.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
-        "https://w3id.org/lmodel/core/vocab/object"
+        "https://w3id.org/lmodel/core/object"
       ],
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/target",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/target",
       "range": "UcoObject",
       "inlined": true,
       "@type": "SlotDefinition"
     },
     {
       "name": "value",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/value",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/value",
       "description": "A string value.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/value",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/value",
       "range": "string_type",
       "@type": "SlotDefinition"
     },
     {
       "name": "annotation_object",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/object",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/object",
       "description": "Specifies one or more UcoObjects.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
-        "https://w3id.org/lmodel/core/vocab/entity"
+        "https://w3id.org/lmodel/core/entity"
       ],
       "is_a": "object",
       "domain": "Annotation",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/object",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/object",
       "multivalued": true,
       "alias": "object",
       "owner": "Annotation",
@@ -693,12 +743,12 @@
     },
     {
       "name": "assertion_statement",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/statement",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/statement",
       "description": "A textual statement of an assertion.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "is_a": "statement",
       "domain": "Assertion",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/statement",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/statement",
       "multivalued": true,
       "alias": "statement",
       "owner": "Assertion",
@@ -712,7 +762,7 @@
     },
     {
       "name": "confidence_facet_confidence",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/confidence",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/confidence",
       "description": "An asserted level of certainty in the accuracy of some information.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "close_mappings": [
@@ -723,7 +773,7 @@
       ],
       "is_a": "confidence",
       "domain": "ConfidenceFacet",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/confidence",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/confidence",
       "alias": "confidence",
       "owner": "ConfidenceFacet",
       "domain_of": [
@@ -739,15 +789,15 @@
     },
     {
       "name": "contextual_compilation_object",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/object",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/object",
       "description": "Specifies one or more UcoObjects.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
-        "https://w3id.org/lmodel/core/vocab/entity"
+        "https://w3id.org/lmodel/core/entity"
       ],
       "is_a": "object",
       "domain": "ContextualCompilation",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/object",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/object",
       "multivalued": true,
       "alias": "object",
       "owner": "ContextualCompilation",
@@ -763,12 +813,12 @@
     },
     {
       "name": "controlled_vocabulary_value",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/value",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/value",
       "description": "A string value.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "is_a": "value",
       "domain": "ControlledVocabulary",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/value",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/value",
       "alias": "value",
       "owner": "ControlledVocabulary",
       "domain_of": [
@@ -782,15 +832,15 @@
     },
     {
       "name": "enclosing_compilation_object",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/object",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/object",
       "description": "Specifies one or more UcoObjects.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
-        "https://w3id.org/lmodel/core/vocab/entity"
+        "https://w3id.org/lmodel/core/entity"
       ],
       "is_a": "object",
       "domain": "EnclosingCompilation",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/object",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/object",
       "multivalued": true,
       "alias": "object",
       "owner": "EnclosingCompilation",
@@ -806,7 +856,7 @@
     },
     {
       "name": "grouping_context",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/context",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/context",
       "description": "A description of particular contextual affinity.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
@@ -821,7 +871,7 @@
       ],
       "is_a": "context",
       "domain": "Grouping",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/context",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/context",
       "multivalued": true,
       "alias": "context",
       "owner": "Grouping",
@@ -835,15 +885,15 @@
     },
     {
       "name": "relationship_target",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/target",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/target",
       "description": "The terminating node of a specified relationship.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
-        "https://w3id.org/lmodel/core/vocab/object"
+        "https://w3id.org/lmodel/core/object"
       ],
       "is_a": "target",
       "domain": "Relationship",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/target",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/target",
       "alias": "target",
       "owner": "Relationship",
       "domain_of": [
@@ -857,15 +907,15 @@
     },
     {
       "name": "relationship_source",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/source",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/source",
       "description": "The originating node of a specified relationship.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
-        "https://w3id.org/lmodel/core/vocab/subject"
+        "https://w3id.org/lmodel/core/subject"
       ],
       "is_a": "source",
       "domain": "Relationship",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/source",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/source",
       "multivalued": true,
       "alias": "source",
       "owner": "Relationship",
@@ -880,12 +930,12 @@
     },
     {
       "name": "relationship_isDirectional",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/isDirectional",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/isDirectional",
       "description": "A specification whether or not a relationship assertion is limited to the context FROM a source object(s) TO a target object.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "is_a": "isDirectional",
       "domain": "Relationship",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/isDirectional",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/isDirectional",
       "alias": "isDirectional",
       "owner": "Relationship",
       "domain_of": [
@@ -899,18 +949,18 @@
     },
     {
       "name": "uco_object_createdBy",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/createdBy",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/createdBy",
       "description": "The identity that created a characterization of a concept.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
         "http://purl.obolibrary.org/obo/NCIT_C42628"
       ],
       "narrow_mappings": [
-        "https://w3id.org/lmodel/core/vocab/author"
+        "https://w3id.org/lmodel/core/author"
       ],
       "is_a": "createdBy",
       "domain": "UcoObject",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/createdBy",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/createdBy",
       "alias": "createdBy",
       "owner": "UcoObject",
       "domain_of": [
@@ -923,12 +973,12 @@
     },
     {
       "name": "uco_object_externalReference",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/externalReference",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/externalReference",
       "description": "Specifies a reference to a resource outside of the UCO.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "is_a": "externalReference",
       "domain": "UcoObject",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/externalReference",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/externalReference",
       "multivalued": true,
       "alias": "externalReference",
       "owner": "UcoObject",
@@ -942,12 +992,12 @@
     },
     {
       "name": "uco_object_hasFacet",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/hasFacet",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/hasFacet",
       "description": "Further sets of properties characterizing a concept based on the particular context of the class and of the particular instance of the concept being characterized.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "is_a": "hasFacet",
       "domain": "UcoObject",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/hasFacet",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/hasFacet",
       "multivalued": true,
       "alias": "hasFacet",
       "owner": "UcoObject",
@@ -961,12 +1011,12 @@
     },
     {
       "name": "uco_object_modifiedTime",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/modifiedTime",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/modifiedTime",
       "description": "Specifies the time that this particular version of the object was modified. The object creator can use the time it deems most appropriate as the time this version of the object was modified. The value of the modified property for a given object version MUST be later than or equal to the value of the created property. Object creators MUST update the modified property when creating a new version of an object. The modified timestamp MUST be precise to the nearest millisecond (exactly three digits after the decimal place in seconds).",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "is_a": "modifiedTime",
       "domain": "UcoObject",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/modifiedTime",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/modifiedTime",
       "multivalued": true,
       "alias": "modifiedTime",
       "owner": "UcoObject",
@@ -980,12 +1030,12 @@
     },
     {
       "name": "uco_object_objectMarking",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/objectMarking",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/objectMarking",
       "description": "Marking definitions to be applied to a particular concept characterization in its entirety.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "is_a": "objectMarking",
       "domain": "UcoObject",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/objectMarking",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/objectMarking",
       "multivalued": true,
       "alias": "objectMarking",
       "owner": "UcoObject",
@@ -999,12 +1049,12 @@
     },
     {
       "name": "uco_object_tag",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/tag",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/tag",
       "description": "A generic tag/label.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "is_a": "tag",
       "domain": "UcoObject",
-      "slot_uri": "https://w3id.org/lmodel/uco/core/vocab/tag",
+      "slot_uri": "https://w3id.org/lmodel/uco-core/tag",
       "multivalued": true,
       "alias": "tag",
       "owner": "UcoObject",
@@ -1020,7 +1070,7 @@
   "classes": [
     {
       "name": "Annotation",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/Annotation",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/Annotation",
       "description": "An annotation is an assertion made in relation to one or more objects.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
@@ -1044,12 +1094,12 @@
         "annotation_object"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/lmodel/uco/core/vocab/Annotation",
+      "class_uri": "https://w3id.org/lmodel/uco-core/Annotation",
       "@type": "ClassDefinition"
     },
     {
       "name": "Assertion",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/Assertion",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/Assertion",
       "description": "An assertion is a statement declared to be true.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
@@ -1074,12 +1124,12 @@
         "assertion_statement"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/lmodel/uco/core/vocab/Assertion",
+      "class_uri": "https://w3id.org/lmodel/uco-core/Assertion",
       "@type": "ClassDefinition"
     },
     {
       "name": "AttributedName",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/AttributedName",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/AttributedName",
       "description": "An attributed name is a name of an entity issued by some attributed naming authority.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "related_mappings": [
@@ -1102,12 +1152,12 @@
         "namingAuthority"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/lmodel/uco/core/vocab/AttributedName",
+      "class_uri": "https://w3id.org/lmodel/uco-core/AttributedName",
       "@type": "ClassDefinition"
     },
     {
       "name": "Bundle",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/Bundle",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/Bundle",
       "description": "A bundle is a container for a grouping of UCO content with no presumption of shared context.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "close_mappings": [
@@ -1133,12 +1183,12 @@
         "enclosing_compilation_object"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/lmodel/uco/core/vocab/Bundle",
+      "class_uri": "https://w3id.org/lmodel/uco-core/Bundle",
       "@type": "ClassDefinition"
     },
     {
       "name": "Compilation",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/Compilation",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/Compilation",
       "description": "A compilation is a grouping of things.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "narrow_mappings": [
@@ -1159,12 +1209,12 @@
         "uco_object_tag"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/lmodel/uco/core/vocab/Compilation",
+      "class_uri": "https://w3id.org/lmodel/uco-core/Compilation",
       "@type": "ClassDefinition"
     },
     {
       "name": "ConfidenceFacet",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/ConfidenceFacet",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/ConfidenceFacet",
       "description": "A confidence is a grouping of characteristics unique to an asserted level of certainty in the accuracy of some information.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "related_mappings": [
@@ -1175,12 +1225,12 @@
         "confidence_facet_confidence"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/lmodel/uco/core/vocab/ConfidenceFacet",
+      "class_uri": "https://w3id.org/lmodel/uco-core/ConfidenceFacet",
       "@type": "ClassDefinition"
     },
     {
       "name": "ContextualCompilation",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/ContextualCompilation",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/ContextualCompilation",
       "description": "A contextual compilation is a grouping of things sharing some context (e.g., a set of network connections observed on a given day, all accounts associated with a given person).",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "related_mappings": [
@@ -1202,12 +1252,12 @@
         "contextual_compilation_object"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/lmodel/uco/core/vocab/ContextualCompilation",
+      "class_uri": "https://w3id.org/lmodel/uco-core/ContextualCompilation",
       "@type": "ClassDefinition"
     },
     {
       "name": "ControlledVocabulary",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/ControlledVocabulary",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/ControlledVocabulary",
       "description": "A controlled vocabulary is an explicitly constrained set of string values.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
@@ -1231,12 +1281,12 @@
         "controlled_vocabulary_value"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/lmodel/uco/core/vocab/ControlledVocabulary",
+      "class_uri": "https://w3id.org/lmodel/uco-core/ControlledVocabulary",
       "@type": "ClassDefinition"
     },
     {
       "name": "EnclosingCompilation",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/EnclosingCompilation",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/EnclosingCompilation",
       "description": "An enclosing compilation is a container for a grouping of things.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "narrow_mappings": [
@@ -1258,12 +1308,12 @@
         "enclosing_compilation_object"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/lmodel/uco/core/vocab/EnclosingCompilation",
+      "class_uri": "https://w3id.org/lmodel/uco-core/EnclosingCompilation",
       "@type": "ClassDefinition"
     },
     {
       "name": "ExternalReference",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/ExternalReference",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/ExternalReference",
       "description": "Characteristics of a reference to a resource outside of the UCO.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "is_a": "UcoInherentCharacterizationThing",
@@ -1273,12 +1323,12 @@
         "externalIdentifier"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/lmodel/uco/core/vocab/ExternalReference",
+      "class_uri": "https://w3id.org/lmodel/uco-core/ExternalReference",
       "@type": "ClassDefinition"
     },
     {
       "name": "Facet",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/Facet",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/Facet",
       "description": "A facet is a grouping of characteristics singularly unique to a particular inherent aspect of a UCO domain object.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "narrow_mappings": [
@@ -1286,12 +1336,12 @@
       ],
       "is_a": "UcoInherentCharacterizationThing",
       "slot_usage": {},
-      "class_uri": "https://w3id.org/lmodel/uco/core/vocab/Facet",
+      "class_uri": "https://w3id.org/lmodel/uco-core/Facet",
       "@type": "ClassDefinition"
     },
     {
       "name": "Grouping",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/Grouping",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/Grouping",
       "description": "A grouping is a compilation of referenced UCO content with a shared context.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
@@ -1314,12 +1364,12 @@
         "grouping_context"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/lmodel/uco/core/vocab/Grouping",
+      "class_uri": "https://w3id.org/lmodel/uco-core/Grouping",
       "@type": "ClassDefinition"
     },
     {
       "name": "IdentityAbstraction",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/IdentityAbstraction",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/IdentityAbstraction",
       "description": "An identity abstraction is a grouping of identifying characteristics unique to an individual or organization. This class is an ontological structural abstraction for this concept. Implementations of this concept should utilize the identity:Identity class.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "related_mappings": [
@@ -1339,12 +1389,12 @@
         "uco_object_tag"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/lmodel/uco/core/vocab/IdentityAbstraction",
+      "class_uri": "https://w3id.org/lmodel/uco-core/IdentityAbstraction",
       "@type": "ClassDefinition"
     },
     {
       "name": "Item",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/Item",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/Item",
       "description": "An item is a distinct article or unit.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
@@ -1368,12 +1418,12 @@
         "uco_object_tag"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/lmodel/uco/core/vocab/Item",
+      "class_uri": "https://w3id.org/lmodel/uco-core/Item",
       "@type": "ClassDefinition"
     },
     {
       "name": "MarkingDefinitionAbstraction",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/MarkingDefinitionAbstraction",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/MarkingDefinitionAbstraction",
       "description": "A marking definition abstraction is a grouping of characteristics unique to the expression of a specific data marking conveying restrictions, permissions, and other guidance for how marked data can be used and shared. This class is an ontological structural abstraction for this concept. Implementations of this concept should utilize the marking:MarkingDefinition class.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "is_a": "UcoObject",
@@ -1390,12 +1440,12 @@
         "uco_object_tag"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/lmodel/uco/core/vocab/MarkingDefinitionAbstraction",
+      "class_uri": "https://w3id.org/lmodel/uco-core/MarkingDefinitionAbstraction",
       "@type": "ClassDefinition"
     },
     {
       "name": "ModusOperandi",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/ModusOperandi",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/ModusOperandi",
       "description": "A modus operandi is a particular method of operation (how a particular entity behaves or the resources they use).",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
@@ -1415,12 +1465,12 @@
         "uco_object_tag"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/lmodel/uco/core/vocab/ModusOperandi",
+      "class_uri": "https://w3id.org/lmodel/uco-core/ModusOperandi",
       "@type": "ClassDefinition"
     },
     {
       "name": "Relationship",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/Relationship",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/Relationship",
       "description": "A relationship is a grouping of characteristics unique to an assertion that one or more objects are related to another object in some way.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "exact_mappings": [
@@ -1447,17 +1497,17 @@
         "relationship_isDirectional"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/lmodel/uco/core/vocab/Relationship",
+      "class_uri": "https://w3id.org/lmodel/uco-core/Relationship",
       "@type": "ClassDefinition"
     },
     {
       "name": "UcoInherentCharacterizationThing",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/UcoInherentCharacterizationThing",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/UcoInherentCharacterizationThing",
       "description": "A UCO inherent characterization thing is a grouping of characteristics unique to a particular inherent aspect of a UCO domain object.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "is_a": "UcoThing",
       "slot_usage": {},
-      "class_uri": "https://w3id.org/lmodel/uco/core/vocab/UcoInherentCharacterizationThing",
+      "class_uri": "https://w3id.org/lmodel/uco-core/UcoInherentCharacterizationThing",
       "disjoint_with": [
         "UcoObject"
       ],
@@ -1465,7 +1515,7 @@
     },
     {
       "name": "UcoObject",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/UcoObject",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/UcoObject",
       "description": "A UCO object is a representation of a fundamental concept either directly inherent to the cyber domain or indirectly related to the cyber domain and necessary for contextually characterizing cyber domain concepts and relationships. Within the Unified Cyber Ontology (UCO) structure this is the base class acting as a consistent, unifying and interoperable foundation for all explicit and inter-relatable content objects.",
       "from_schema": "https://w3id.org/lmodel/uco/core",
       "related_mappings": [
@@ -1486,7 +1536,7 @@
         "uco_object_tag"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/lmodel/uco/core/vocab/UcoObject",
+      "class_uri": "https://w3id.org/lmodel/uco-core/UcoObject",
       "disjoint_with": [
         "UcoInherentCharacterizationThing"
       ],
@@ -1494,7 +1544,7 @@
     },
     {
       "name": "UcoThing",
-      "definition_uri": "https://w3id.org/lmodel/uco/core/vocab/UcoThing",
+      "definition_uri": "https://w3id.org/lmodel/uco-core/UcoThing",
       "description": "UcoThing is the top-level class within UCO.",
       "notes": [
         "UcoThings are required to not be blank nodes."
@@ -1510,21 +1560,21 @@
       ],
       "abstract": true,
       "slot_usage": {},
-      "class_uri": "https://w3id.org/lmodel/uco/core/vocab/UcoThing",
+      "class_uri": "https://w3id.org/lmodel/uco-core/UcoThing",
       "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "uco_core.yaml",
-  "source_file_date": "2023-02-01T00:01:26",
-  "source_file_size": 16515,
-  "generation_date": "2023-02-01T00:02:43",
+  "source_file_date": "2023-02-05T22:36:59",
+  "source_file_size": 16503,
+  "generation_date": "2023-02-05T22:37:58",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/uco_core.context.jsonld",
     "https://w3id.org/linkml/types.context.jsonld",
     {
-      "@base": "https://w3id.org/lmodel/uco/core/vocab/"
+      "@base": "https://w3id.org/lmodel/uco-core/"
     }
   ]
 }
